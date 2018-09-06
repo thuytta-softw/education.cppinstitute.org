@@ -1,0 +1,29 @@
+Chapter 1:
+STL sequential containers
+Constructing vector
+1.2.3.Constructing vector
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    // declare vector contain 10 element with 0 number in each
+    vector <int> vect (10,0);
+
+    // print vector's size
+    cout<<"Vector's size: "<<vect.size()<<endl;
+
+    //print vector element
+    for(unsigned i=0 ; i < vect.size() ; ++i)
+    {
+        cout<<vect[i]<<" ";
+    }
+
+    cout<<endl;
+
+    return 0;
+}
