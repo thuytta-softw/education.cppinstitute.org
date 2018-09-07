@@ -27,3 +27,8 @@ int main()
 
     return 0;
 }
+
+
+Output:
+Size: 10
+0 0 0 0 0 0 0 0 0 0
