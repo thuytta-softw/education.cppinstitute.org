@@ -1,6 +1,8 @@
-
-https://education.cppinstitute.org/course_datas/display/81/411#
 // in this file: deque similar to vector
+https://education.cppinstitute.org/course_datas/display/81/411#
+
+// what is difference between vector & deque 
+//http://www.gotw.ca/gotw/054.htm
 
 #include <iostream>
 #include <deque>
