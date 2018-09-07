@@ -1,5 +1,6 @@
 
 https://education.cppinstitute.org/course_datas/display/81/411#
+// in this file: deque similar to vector
 
 #include <iostream>
 #include <deque>
