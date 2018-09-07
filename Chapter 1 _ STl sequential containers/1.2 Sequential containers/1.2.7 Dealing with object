@@ -1,0 +1,26 @@
+
+1.2.7 Dealing with object
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class A
+{
+    int number;
+public:
+    A (int num): number(num){} // implicit type conversion
+
+};
+int main()
+{
+    vector <A> v1;
+    v1.push_back(1);
+    cout<<"v1 size: "v1.size();
+    return 0;
+}
+
+Output:
+
+v1 size: 1
