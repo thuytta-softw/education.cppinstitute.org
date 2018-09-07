@@ -1,0 +1,58 @@
+
+https://education.cppinstitute.org/course_datas/display/81/411#
+
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+class A
+{
+    int number;
+public:
+
+    A()
+    {
+        cout<<"Default constructor \n";
+    }
+
+    A(int _number):number(_number)
+    {
+        cout<<"Normal constructor \n";
+    }
+
+    A(const A& source)
+    {
+        number = source.number;
+        cout<<"copy constructor \n";
+    }
+
+    A & operator= (const A& source)
+    {
+        number = source.number;
+        cout<<"Assigment operator \n";
+        return *this;
+    }
+
+};
+
+int main()
+{
+    vector <A> v(1);// (1)
+
+    v.push_back(6); // (2)
+
+    v[0] = 10; // (3)
+
+    cout<<"vector size: "<<v.size();
+
+    return 0;
+}
+
+Output:
+Default constructor ****(1)
+Normal constructor ****(2)
+Copy constructor     ****(2)
+Copy constructor     ****(2)
+Normal constructor ****(3)
+Assignment operator  ****(3)
