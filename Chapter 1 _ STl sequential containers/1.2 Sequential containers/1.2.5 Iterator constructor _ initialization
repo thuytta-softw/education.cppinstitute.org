@@ -1,0 +1,51 @@
+1.2.5 Iterator constructor _ initialization
+
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    //array's name : a1 with 10 element from 1 to 10
+    int a1[] = {1,2,3,4,5,6,7,8,9,10};
+    
+//first one
+    // declare vector contain 10 element with 0 number in each
+    vector <int> vect1 (a1,a1+10);
+
+    // print vector's size
+    cout<<"Vector 1 's size: "<<vect1.size()<<endl;
+
+    //print vector element
+    for(unsigned i=0 ; i < vect1.size() ; ++i)
+    {
+        cout<<vect1[i]<<" ";
+    }
+
+    cout<<endl;
+
+// second one
+    //Iterator
+    vector <int> vect2 (a1+5, a1+10);
+
+    // print vector's size
+    cout<<"Vector 2 's size: "<<vect2.size()<<endl;
+
+    //print vector element
+    for(unsigned i=0 ; i < vect2.size() ; ++i)
+    {
+        cout<<vect2[i]<<" ";
+    }
+
+    return 0;
+}
+
+Output:
+Size (v1):  10
+1 2 3 4 5 6 7 8 9 10
+Size (v2):  5
+6 7 8 9 10
+
