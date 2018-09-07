@@ -1,0 +1,76 @@
+
+1.2.10 Create a copy of a vector
+
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+class A
+{
+    int number;
+public:
+
+    A()
+    {
+        cout<<"Default constructor \n";
+    }
+
+    A(int _number):number(_number)
+    {
+        cout<<"Normal constructor \n";
+    }
+
+    A(const A& source)
+    {
+        number = source.number;
+        cout<<"copy constructor \n";
+    }
+
+    A & operator= (const A& source)
+    {
+        number = source.number;
+        cout<<"Assigment operator \n";
+        return *this;
+    }
+
+};
+
+int main()
+{
+
+    vector <A> v1;// (1) just create a vector not object A
+
+    v1.push_back(1); // (1) crate object A with a number in it and call copy constructor
+
+    // copy constructor
+    vector <A> v2(v1); // (2)
+    cout<<"second ready \n";
+
+    // Assigment opearator - empty target
+    vector <A> v3;
+    v3 = v2;
+    cout<<"Third ready \n";
+
+    // Assigment opearator - not empty target
+    vector <A> v4(3); // 3 element -> 3 default call to make 3 object
+    v4 = v2;
+    cout<<"Fouth ready \n";
+
+    cout<<"14 size: "<<v4.size();
+
+    return 0;
+}
+
+Output:
+Normal constructor        (1)
+Copy constructor        (1)
+First ready!
+Copy constructor        (2)
+Second ready!
+Copy constructor        (3)
+Third ready!
+Default constructor        (4)
+Default constructor        (4)
+Default constructor        (4)
+Assignment operator        (4)
