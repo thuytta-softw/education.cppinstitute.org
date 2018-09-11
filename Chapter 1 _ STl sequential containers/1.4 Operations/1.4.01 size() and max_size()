@@ -1,0 +1,5 @@
+
+1.4.01 size() and max_size()
+https://education.cppinstitute.org/course_datas/display/81/412#
+
+#include <iostream>
