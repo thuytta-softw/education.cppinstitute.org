@@ -1,0 +1,44 @@
+
+1.4.2 empty() and resize()
+https://education.cppinstitute.org/course_datas/display/81/412#
+
+#include <iostream>
+#include <vector>
+#include <deque>	
+#include <list>
+
+using namespace std;
+
+int main()
+{
+	//containers
+	vector <int> v;
+	deque <int> d;
+	list <int> l;
+
+	cout << "size() of vector, deque, list: ";
+	cout << v.size() << " " << d.size() << " " << l.size() << "\n";
+
+	if (v.empty()) v.resize(10);
+	if (d.empty()) d.resize(10);
+	if (l.empty()) l.resize(10);
+
+	cout << "\n size() of vector, deque, list: ";
+	cout << v.size() << " " << d.size() << " " << l.size() << "\n";
+
+	if (!v.empty()) v.resize(9);
+	if (!d.empty()) d.resize(5);
+	if (!l.empty()) l.resize(0);
+
+	cout << "\n size() of vector, deque, list: ";
+	cout << v.size() << " " << d.size() << " " << l.size() << "\n";
+
+	system("pause");
+	return 0;
+}
+
+
+Console output:
+Size of vector, deque, list: 0 0 0
+Size of vector, deque, list: 10 10 10
+Size of vector, deque, list: 9 5 0
