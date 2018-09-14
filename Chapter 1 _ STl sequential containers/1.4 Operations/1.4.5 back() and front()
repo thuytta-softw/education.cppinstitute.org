@@ -1,0 +1,110 @@
+
+1.4.5 back() and front()
+https://education.cppinstitute.org/course_datas/display/81/412#
+
+
+
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <list>
+
+using namespace std;
+
+template <class T>
+print(const T &start, const T & finish)
+{
+    T it;
+    for(it = start ; it!= finish ; ++it)
+        cout<<*it<<" ";
+    cout<<endl;
+}
+
+
+int main()
+{
+    int a[] = {1,2,3,4,5,6,7,8,9,10};
+
+    //containers
+
+    vector <int> v (a,a+10);
+    deque <int> d (a,a+10);
+    list <int> l (a,a+10);
+
+    cout<<"size of (vetor, deque, list): \t"<<v.size()<<"\t"<<d.size()<<"\t"<<l.size()<<"\n";
+    cout<<"values at front (vetor, deque, list): \t"<<v.front()<<"\t"<<d.front()<<"\t"<<l.front()<<"\n";
+    cout<<"size of (vetor, deque, list): \t"<<v.size()<<"\t"<<d.size()<<"\t"<<l.size()<<"\n";
+
+    v.front() = 100;
+    d.front() = 101;
+    l.front() = 102;
+
+    print(v.begin(), v.end());
+    print(d.begin(), d.end());
+    print(l.begin(), l.end());
+
+    return 0;
+
+}
+
+Console output:
+Size of vector, deque, list: 10 10 10
+Values at front (vector, deque, list): 1 1 1
+Size of vector, deque, list: 10 10 10
+100 2 3 4 5 6 7 8 9 10
+101 2 3 4 5 6 7 8 9 10
+102 2 3 4 5 6 7 8 9 10
+
+
+
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <list>
+
+using namespace std;
+
+template <class T>
+print(const T &start, const T & finish)
+{
+    T it;
+    for(it = start ; it!= finish ; ++it)
+        cout<<*it<<" ";
+    cout<<endl;
+}
+
+
+int main()
+{
+    int a[] = {1,2,3,4,5,6,7,8,9,10};
+
+    //containers
+
+    vector <int> v (a,a+10);
+    deque <int> d (a,a+10);
+    list <int> l (a,a+10);
+
+    cout<<"size of (vetor, deque, list): \t"<<v.size()<<"\t"<<d.size()<<"\t"<<l.size()<<"\n";
+    cout<<"values at front (vetor, deque, list): \t"<<v.front()<<"\t"<<d.front()<<"\t"<<l.front()<<"\n";
+    cout<<"size of (vetor, deque, list): \t"<<v.size()<<"\t"<<d.size()<<"\t"<<l.size()<<"\n";
+
+    v.back() = 100;
+    d.back() = 101;
+    l.back() = 102;
+
+    print(v.begin(), v.end());
+    print(d.begin(), d.end());
+    print(l.begin(), l.end());
+
+    return 0;
+
+}
+
+Console output:
+Size of vector, deque, list: 10 10 10
+Values at back (vector, deque, list): 10 10 10
+Size of vector, deque, list: 10 10 10
+1 2 3 4 5 6 7 8 9 100
+1 2 3 4 5 6 7 8 9 101
+1 2 3 4 5 6 7 8 9 102
+
