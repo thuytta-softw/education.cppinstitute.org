@@ -3,6 +3,7 @@
 1.4.6 operator[] and at() - vector and deque only
 https://education.cppinstitute.org/course_datas/display/81/412#
 
+
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -51,4 +52,76 @@ Console output (g++)
 1 2 3 4 5 6 7 8 9 10
 Accessing out of range element:
 0 0 -> garbage value
+
+
+/*** at() ***/
+
+
+#include <iostream>
+#include <vector>
+#include <deque>
+
+using namespace std;
+
+template <class T>
+void print(const T &container)
+{
+    for(unsigned i=0 ; i<container.size(); ++i)
+    {
+        cout<<container.at(i)<<" ";
+    }
+    cout<<endl;
+}
+
+
+int main()
+{
+
+    int a[] = {1,2,3,4,5,6,7,8,9,10};
+
+    //containers
+    vector <int> v(10);
+    deque <int> d(10);
+
+    // initialize
+    for (unsigned i = 0 ; i < 10 ; ++ i)
+    {
+        v[i] = a[i];
+        d[i] = a[i];
+    }
+
+    //call print procedure
+    print(v);
+    print(d);
+
+    cout<<"Accessing out of element: \n";
+    //cout<<v[10]<<" "<<d[10]<<endl;
+
+    try
+    {
+        cout<<v.at(11)<<endl;
+    }
+    catch(out_of_range & ex)
+    {
+        cout<<ex.what()<<endl;
+    }
+
+    try
+    {
+        cout<<d.at(11);
+    }
+    catch(out_of_range &ex)
+    {
+        cout<<ex.what()<<endl;
+    }
+
+    return 0;
+}
+
+Console output:
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+Accessing out of range element:
+invalid vector subscript
+invalid deque subscript
 
