@@ -1,0 +1,48 @@
+
+1.4.4 vector::reserve()-vector only
+https://education.cppinstitute.org/course_datas/display/81/412#
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+	vector <int> v;
+	cout<<"before reserve: \n";
+	cout << "Size: " << v.size() << "\t Capacity: " << v.capacity() << endl;
+
+	v.reserve(15);
+    cout<<"after reserve: \n";
+	cout << "Size: " << v.size() << "\t Capacity: " << v.capacity() << endl;
+
+	for(int i=0 ; i<10 ; i++)
+    {
+        v.push_back(i);
+        cout << "Size: " << v.size() << "\t Capacity: " << v.capacity() << endl;
+    }
+    
+    cout<<"try to shrink: \n";
+    v.reserve(10);
+    cout << "Size: " << v.size() << "\t Capacity: " << v.capacity() << endl;
+	
+	return 0;
+}
+
+Console output:
+Size and capacity: 0 0
+Size and capacity: 0 15
+Adding elements
+Size and capacity: 1 15
+Size and capacity: 2 15
+Size and capacity: 3 15
+Size and capacity: 4 15
+Size and capacity: 5 15
+Size and capacity: 6 15
+Size and capacity: 7 15
+Size and capacity: 8 15
+Size and capacity: 9 15
+Size and capacity: 10 15
+Trying to shrink...
+Size and capacity: 10 15
