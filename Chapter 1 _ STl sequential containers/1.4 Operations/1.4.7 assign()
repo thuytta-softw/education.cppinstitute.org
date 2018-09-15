@@ -1,0 +1,73 @@
+
+1.4.7 assign()
+https://education.cppinstitute.org/course_datas/display/81/412#
+
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <list>
+
+using namespace std;
+
+template <class T>
+void print(const T &start, const T &finish)
+{
+    T it;
+    for (it = start ; it!= finish ; ++it)
+        cout<<*it<<" ";
+    cout<<endl;
+
+}
+
+int main()
+{
+    int a[] = {1,2,3,4,5,6,7,8,9,10};
+
+    // containers
+
+    cout<<"Console output";
+    vector <int> v(a,a+5);
+    deque <int> d(a,a+5);
+    list <int> l(a,a+5);
+
+    print(v.begin(), v.end());
+    print(d.begin(), d.end());
+    print(l.begin(), l.end());
+
+    // assign first
+
+    cout<<"Assigning a new contain 1: \n";
+    v.assign(a,a+10);
+    d.assign(a,a+10);
+    l.assign(a,a+10);
+
+    print(v.begin(), v.end());
+    print(d.begin(), d.end());
+    print(l.begin(), l.end());
+
+    // assign second
+
+    cout<<"Assigning a new contain 2: \n";
+    v.assign(3, 100);
+    d.assign(3, 101);
+    l.assign(3, 102);
+
+    print(v.begin(), v.end());
+    print(d.begin(), d.end());
+    print(l.begin(), l.end());
+
+    return 0;
+}
+
+Console output:
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+Assigning a new content 1:
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+Assigning a new content 2:
+100 100 100
+101 101 101
+102 102 102
