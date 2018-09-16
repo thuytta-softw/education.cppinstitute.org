@@ -1,0 +1,79 @@
+
+1.4.8 insert()
+https://education.cppinstitute.org/course_datas/display/81/413#
+
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <list>
+
+using namespace std;
+
+template <class T>
+void print(const T &start, const T &finish)
+{
+    T it;
+    for(it = start; it!= finish; ++it)
+        cout<<*it<<", ";
+    cout<<endl;
+}
+
+
+int main()
+{
+    int a[] = {1,2,3,4,5,6,7,8,9,10};
+    int number, position;
+    //container - vector 1
+    vector <int> v1(a,a+10);
+
+    print(v1.begin(), v1.end());
+    cout<<"Size of vector before insert: "<<v1.size()<<endl;
+
+    cout<<"what's the number you want to insert into this vector? \n Input that number in here: ";
+    cin>> number;
+
+    cout<<"\n What's the position do you want to insert from 0 to 9? \n Input the number in here: ";
+    cin>>position;
+
+    vector <int>::iterator it = v1.insert(v1.begin()+ position, number);
+    cout<<"the number insert is: "<<*it<<endl;
+
+    print(v1.begin(), v1.end());
+    cout<<"Size of vector after insert: "<<v1.size()<<endl;
+
+    // container - vector 2
+
+    vector <int> v2;
+
+    cout<<"Size of vector 2 before insert: "<<v2.size()<<endl;
+    v2.insert(v2.begin(), v1.rbegin(), v1.rend());
+
+    print(v2.begin(), v2.end());
+    cout<<"Size of vector 2 after insert: "<<v2.size()<<endl;
+
+    // container vector 3
+
+    vector <int> v3(v1.begin(), v1.begin()+5);
+    v3.insert(v3.end(), 3, 50);
+    cout<<"vector 3: \n";
+    print(v3.begin(), v3.end());
+
+    return 0;
+}
+
+
+console output:
+
+Size of vector before insert: 10
+what's the number you want to insert into this vector? 
+Input that number in here: 100
+What's the position do you want to insert from 0 to 9?
+Input the number in here: 8
+1,2,3,4,5,6,7,8,100,9,10
+the number insert is: 100
+Size of vector after insert: 11
+Size of vector 2 before insert: 0
+10,9,100,8,7,6,5,4,3,2,1
+Size of vector 2 after insert: 11
+vector 3:
+1,2,3,4,5, 50,50,50
