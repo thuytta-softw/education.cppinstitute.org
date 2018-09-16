@@ -1,0 +1,63 @@
+
+1.4.11 clear()
+https://education.cppinstitute.org/course_datas/display/81/413#
+
+#include <list>
+#include <vector>
+#include <deque>
+#include <iostream>
+
+using namespace std;
+
+template<class I>
+void print (const I & start, const I & end)
+{
+    for(I it = start; it != end; ++it)
+    {
+        cout<< *it << " ";
+    }
+    cout<<endl;
+}
+
+int main()
+{
+    int a[] = {1,2,3,4,5,6,7,8,9,10};
+    vector <int> v(a,a+10);
+    deque <int> d(a,a+10);
+    list <int> l(a,a+10);
+
+    print(v.begin(), v.end());
+    print(d.begin(), d.end());
+    print(l.begin(), l.end());
+
+    cout<<"Size (vector, deque, list) before clear: "<<v.size()<<"\t"<<d.size()<<"\t"<<l.size()<<"\n";
+
+    cout<<"Clearing collections:\n";
+    v.clear();
+    d.clear();
+    l.clear();
+
+    cout<<"Size (vector, deque, list) after clear: "<<v.size()<<"\t"<<d.size()<<"\t"<<l.size()<<"\n";
+
+    v.push_back(100);
+    d.push_back(100);
+    l.push_back(100);
+    print(v.begin(), v.end());
+    print(d.begin(), d.end());
+    print(l.begin(), l.end());
+    cout<<"Size (vector, deque, list) after push_back: "<<v.size()<<"\t"<<d.size()<<"\t"<<l.size()<<"\n";
+
+    return 0;
+}
+
+Console output:
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+1 2 3 4 5 6 7 8 9 10
+Size (vector, deque, list) before clear: 10   10   10
+Clearing collections:
+Size (vector, deque, list) after clear: 0   0   0 
+100
+100
+100
+Size (vector, deque, list) after push_back:  1   1   1
