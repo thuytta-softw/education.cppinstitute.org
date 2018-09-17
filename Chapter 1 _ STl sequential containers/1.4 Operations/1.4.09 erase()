@@ -16,9 +16,7 @@ void print(const T &start, const T &finish)
     T it;
     for(it = start; it!= finish; ++it)
     {
-
             cout<<*it<<", ";
-
     }
 
     cout<<endl;
