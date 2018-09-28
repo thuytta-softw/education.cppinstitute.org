@@ -1,7 +1,7 @@
 
 /*
 * https://education.cppinstitute.org/course_datas/display/81/413#
-* 1.4.13_Not Vector-push_front() and pop_front()-List and deque only
+* 1.4.13_Only list and deque_Not Vector-push_front() and pop_front()
 * */
 
 #include <iostream>
