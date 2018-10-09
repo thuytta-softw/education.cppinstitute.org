@@ -1,0 +1,67 @@
+
+1.4.15_List only_ remove() and remove_if()
+https://education.cppinstitute.org/course_datas/display/81/413#
+
+// splice()
+
+#include <iostream>
+#include <iterator>
+#include <list>
+
+using namespace std;
+template <typename T>
+void print (const T & start, const T & tail)
+{
+    for(T it = start; it != tail ; ++it)
+        cout<<*it<<" ";
+    cout<<endl;
+}
+int main()
+{
+    int a[]= {1,2,3,4,5};
+    int b[]= {6,7,8,9,10};
+    int c[]= {11,12,13,14,15};
+    list <int> l1(a,a+5);
+    list <int> l2 (b,b+5);
+    list <int> l3 (c,c+5);
+
+    // a method with moves the whole content L3 insert into the source container L2
+    cout<<"L2 splice L3: \n";
+    l2.splice(l2.end(), l3);
+    print(l2.begin(),l2.end());
+    cout<<"L2 size: "<<l2.size()<<", "<<"L3 size: "<<l3.size()<<" \n";
+
+    // a method which moves one, and only one, element specified by the iterator
+
+    cout<<"L1 splice 1 element to L2: \n";
+    list <int> :: iterator it = l2.begin();
+    // iterator begin = l2.begin() -> point to exact position of n (number) = l2.size()-1 = l2.end()
+    // it gets 1 element
+    advance(it,l2.size()-1);
+    l1.splice(l1.end(),l2,it);
+    print(l1.begin(),l1.end());
+    cout<<"L2 size: "<<l2.size()<<", "<<"L1 size: "<<l1.size()<<" \n";
+
+    //a method which moves a range of elements specified by the iterators.
+    cout<<"L1 splice to L2 with a range: \n";
+    it = l1.end();
+    advance(it,-1);
+    l1.splice(it,l2,l2.begin(),l2.end());
+    print(l1.begin(), l1.end());
+    cout<<"L2 size: "<<l2.size()<<", "<<"L1 size: "<<l1.size()<<" \n";
+
+    return 0;
+}
+
+Console output:
+L2 splice L3:
+6 7 8 9 10 11 12 13 14 15
+L2 size: 10, L3 size: 0
+
+L1 splice 1 element to L2:
+1 2 3 4 5 15
+L2 size: 9, L1 size: 6
+
+L1 splice to L2 with a range:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+L2 size: 0, L1 size: 15
