@@ -1,0 +1,9 @@
+
+https://education.cppinstitute.org/course_datas/display/81/418#
+
+3.1.1 List of non-modifying STL operations
+
+Non-modifying means that these operations do not change the elements of the collection, or the collection itself. 
+Generally, this is true, but regardless of the name, it’s possible to change the elements when some of these functions are called – especially the for_each algorithm.
+But using non-modifying operations to change the values of the collection means going against good programming practices.
+So, the best advice is: stick to what the designers of the STL think is right.
