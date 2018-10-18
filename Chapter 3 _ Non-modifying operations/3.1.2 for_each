@@ -1,0 +1,99 @@
+
+https://education.cppinstitute.org/course_datas/display/81/418#
+3.1.2 for_each
+
+
+https://education.cppinstitute.org/course_datas/display/81/418#
+
+3.1.2 for_each
+
+/*****LIST*****/
+#include <iostream>
+#include <list>
+#include <algorithm>
+
+using namespace std;
+
+void print( int & value) //change argument to const int & value for set
+{
+	cout <<value << " ";
+}
+
+struct Print
+{
+	void operator()(int & value) //change argument to const int & value for set
+	{
+		cout <<value<< " ";
+	}
+};
+
+int main()
+{
+	int t[] = {1,2,3,4,5,6,7,8,9,10};
+	list <int> l(t,t+10);
+	cout << "Print all the element of container - using print funtion \n";
+	for_each(l.begin(), l.end(), print); // #include <algorithm>
+	cout << endl << endl;
+
+	cout << "Print all the element of container - using Print object \n";
+	for_each(l.begin(), l.end(), Print()); // #include <algorithm>
+	cout << endl << endl;
+
+	system("pause");
+	return 0;
+}
+
+console output: 
+Print all the element of container - using print funtion
+1 2 3 4 5 6 7 8 9 10
+
+Print all the element of container - using print object
+1 2 3 4 5 6 7 8 9 10
+
+/*****SET*****/
+//!! Be aware of sets and maps !!
+// change arguments of function print and function object must be const
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+
+using namespace std;
+
+void print(const int & value) //change argument to const int & value for set
+{
+	cout << value << " ";
+}
+
+struct Print
+{
+	void operator()(const int & value) //change argument to const int & value for set
+	{
+		cout << value << " ";
+	}
+};
+
+int main()
+{
+	int t[] = { 1,2,3,4,5,6,7,8,9,10 };
+	set <int> s(t, t + 10);
+	cout << "Print all the element of container - using print funtion \n";
+	for_each(s.begin(), s.end(), print); // #include <algorithm>
+	cout << endl << endl;
+
+	cout << "Print all the element of container - using Print object \n";
+	for_each(s.begin(), s.end(), Print()); //#include <algorithm>
+	cout << endl << endl;
+
+	system("pause");
+	return 0;
+}
+
+console output: 
+
+Print all the element of container - using print funtion
+1 2 3 4 5 6 7 8 9 10
+
+Print all the element of container - using print object
+1 2 3 4 5 6 7 8 9 10
+
